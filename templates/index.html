@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block navbarText %}
+{% endblock %}
+
+
+{% block content %}
+<div class="display-2 templateText">Generate your palette!</div>
+
+<form method="GET" action="result">
+
+    <div class="form-group">
+        <input class="form-control" type="text" id="searchTerm" name="searchTerm" placeholder="Search term">
+    </div>
+    
+    <div class="form-group">
+        <input class="form-control" type="number" min="1" max="100" id="imageNo" name="imageNo" placeholder="No. of reference images">
+    </div>
+        
+        <input class="btn" type="submit" id="submit" value="Submit">
+
+    </div>
+
+</form>
+{% endblock %}

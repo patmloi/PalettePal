@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">
+  
+  </head>
+
+  <body>
+    
+    <div id="navbar" class="navbar">
+      <a href='/'>
+        <div id="navbar-link" class="navbarBrand">
+            <span class="brandName templateText" id="brandPalette">Palette</span><span class="brandName inputText" id="brandPal">Pal</span>
+        </div>
+      </a>
+
+      {% block navbarText %}{% endblock %} 
+
+    </div>
+
+    <div id="content">
+      {% block content %}{% endblock %}
+    </div>
+
+    <div id="footer">
+       <span class="footerText templateText">&copy; Copyright 2022 by</span> <span class="footerText inputText"> Patricia Loi</span>
+    </div>
+    
+  </body>
+</html>

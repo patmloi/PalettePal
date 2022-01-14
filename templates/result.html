@@ -1,0 +1,53 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block navbarText %}
+<div class="navbar-brand" id="navbarText">
+    <span class="navbarTextSpan templateText">Your colour palette: </span><span class="navbarTextSpan inputText">{{searchTerm}} </span> 
+</div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" id="paletteContainer">
+        <div class="row" id="paletteRow">
+            {% for c in rgb %}
+                <div class="col col-12 col-lg paletteColour" style="background-color: rgb{{ c }}; color: rgb{{ textColours[loop.index-1] }}; ">
+                    <h5 class="paletteColourName">{{ hex[loop.index-1] }}</h5>
+                </div>
+    
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="container" id="imageSegmentContainer"> 
+
+        <div class="container" id="imageHeader">
+            <h5 id="imageTitle" class="imageHead">
+                <span class="templateText">Search results: </span>
+                <span class="inputText">{{imageNo}} images</span>
+            </h5>
+    
+            <span id="backBtn" class="imageHead templateText">
+                <a id="backBtnA" href="/" class="templateText">
+                    New Palette
+                </a> 
+            </span>
+
+        </div>
+
+
+        <div class="container" id="imageContainer">
+            {% for url in orgImageUrls %}
+                <img class="searchImage" src="{{ url }}">
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}
+
