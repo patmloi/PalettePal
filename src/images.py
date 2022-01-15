@@ -13,7 +13,6 @@ import requests
 from typing import Union, Literal, Tuple, List, Any
 
 def startDriver() -> webdriver.Chrome:
-    # https://medium.com/@mikelcbrowne/running-chromedriver-with-python-selenium-on-heroku-acc1566d161c
     GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
     CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
@@ -24,7 +23,8 @@ def startDriver() -> webdriver.Chrome:
     chromeOptions.add_argument("--headless")
 
     chromeOptions.binary_location = GOOGLE_CHROME_PATH
-    driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chromeOptions)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chromeOptions)
+    print("Driver")
     return driver
 
 def loadPage(wd: webdriver.Chrome, searchTerm: str):
