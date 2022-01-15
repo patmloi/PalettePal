@@ -1,1 +1,1 @@
-web: gunicorn PalettePal.wsgi:app 
+web: gunicorn PalettePal:app 
