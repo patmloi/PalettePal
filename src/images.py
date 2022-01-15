@@ -23,7 +23,7 @@ def startDriver() -> webdriver.Chrome:
     chromeOptions.add_argument("--headless")
 
     chromeOptions.binary_location = GOOGLE_CHROME_PATH
-    driver = webdriver.Chrome(chrome_options=chromeOptions)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chromeOptions)
     print("Driver")
     return driver
 
