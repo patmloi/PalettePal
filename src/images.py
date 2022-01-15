@@ -13,13 +13,17 @@ import requests
 from typing import Union, Literal, Tuple, List, Any
 
 def startDriver() -> webdriver.Chrome:
+    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--disable-extensions")
     chromeOptions.add_argument("--disable-gpu")
+    chromeOptions.add_argument('--no-sandbox')
     chromeOptions.add_argument("--headless")
-    
-    driver = webdriver.Chrome(ChromeDriverManager().install(), options=chromeOptions)
-    print("Driver")
+
+    chromeOptions.binary_location = GOOGLE_CHROME_PATH
+    driver = webdriver.Chrome(execution_path=CHROMEDRIVER_PATH, chrome_options=chromeOptions)
     return driver
 
 def loadPage(wd: webdriver.Chrome, searchTerm: str):
