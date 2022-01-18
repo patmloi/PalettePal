@@ -1,5 +1,7 @@
 # Import statements
 # Webdriver
+import os
+
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
@@ -13,8 +15,8 @@ import requests
 from typing import Union, Literal, Tuple, List, Any
 
 def startDriver() -> webdriver.Chrome:
-    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-    CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+    # GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google-chrome'
+    # CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.add_argument("--disable-extensions")
@@ -22,8 +24,10 @@ def startDriver() -> webdriver.Chrome:
     chromeOptions.add_argument('--no-sandbox')
     chromeOptions.add_argument("--headless")
 
-    chromeOptions.binary_location = GOOGLE_CHROME_PATH
-    driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=chromeOptions) # ChromeDriverManager().install(), chrome_options=chromeOptions)
+    
+
+    # chromeOptions.binary_location = GOOGLE_CHROME_PATH # CHROMEDRIVER_PATH
+    driver = webdriver.Chrome(chrome_options=chromeOptions) # ChromeDriverManager().install(), chrome_options=chromeOptions)
     print("Driver")
     return driver
 
